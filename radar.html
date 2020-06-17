@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		<title>Smoothed D3.js Radar Chart</title>
+
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		<script src="liquidFillGauge.js" language="JavaScript"></script>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+		<style>
+			.liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+			body {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 11px;
+				font-weight: 300;
+				/* fill: #242424; */
+				text-align: center;
+				/* text-shadow: 0 1px 0 #222222, 1px 0 0 #222222, -1px 0 0 #222222, 0 -1px 0 #222222; */
+				cursor: default;
+				background-color: #fed172;
+			}
+			
+			.legend {
+				font-family: 'Raleway', sans-serif;
+				fill: #222222;
+			}
+			
+			.tooltip {
+				fill: #222222;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./bunny2.jpg" style="
+		right: 0;
+		bottom: 0;
+		position: fixed;
+		z-index: -1;
+		/* left: 0; */
+		width: 20%;">
+		<div style="margin: 3%;">
+			<div class="row" class="d-flex justify-content-center">
+				<div class="col-5">
+					<h1 class="font-weight-bold" style="color: white; font-size: 69px;"><u><b>BAD BUNNY</b></u></h1>
+				</div>
+				<div class="col-7"></div>
+				<div class="col-5">
+					<div class="d-flex justify-content-center">
+						<button type="button" class="btn btn-dark m-1" onclick="filter(true)">Dividir por trayectoria</button>
+						<button type="button" class="btn btn-dark m-1" onclick="filter(false)">Restablecer</button>
+					</div>
+					<div id="RdC" class="radarChart"></div>
+					<div class="shadow" style="background-color: #00000070;color: white;font-size: 16px;padding: 1%;margin-right: 21%;margin-left: 26%;border-radius: 4px;">
+						<svg width="20" height="20">
+							<rect width="20" height="20" style="fill:#00ffd0;stroke-width:3;stroke:rgb(0,0,0)" />
+						</svg>&nbsp; <span style="align-items: center;">Elton john</span>
+						<svg width="20" height="20">
+							<rect width="20" height="20" style="fill:#ffd100;stroke-width:3;stroke:rgb(0,0,0)" />
+						</svg>&nbsp; <span style="align-items: center;">Bad bunny</span>
+						<svg width="20" height="20">
+							<rect width="20" height="20" style="fill:#6912B3;stroke-width:3;stroke:rgb(0,0,0)" />
+						</svg>&nbsp; <span style="align-items: center;">Ozuna</span>
+						<svg width="20" height="20">
+							<rect width="20" height="20" style="fill:#550000;stroke-width:3;stroke:rgb(0,0,0)" />
+						</svg>&nbsp; <span style="align-items: center;">Anuel</span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="row">
+						<div class="col-6 shadow">
+							<svg id="fillgauge2" width="auto" height="200" "></svg>
+							<h5> <b>57.78%</b> de los todos los usuarios activos de youtube escucharon la canción "MIA" (<b>1040 Millones</b>) y 15 de sus canciones superan los 250 Millones</h5>
+						</div>
+						<div class="col-6">
+							<svg id="fillgauge1" width="auto" height="200" "></svg>
+							<h5> Los cantantes promedio pueden llegar a ganar un <b>0.16%</b> en un concierto de lo que cobra bad bunny por ellos (<b>$500.000 USD</b>) </h5>
+						</div>
+						<div class="col-6">
+							<svg id="fillgauge3" width="auto" height="200" "></svg>
+							<h5> Posición número 19 del mundo en oyentes mensuales de spotify, con <b>41 Millones</b> de oyentes de <b>232 Millones</b> de usuarios activos </h5>
+						</div>
+						<div class="col-6 shadow">
+							<svg id="fillgauge4" width="100%" height="200" "></svg>
+							<h5> Sus 4 albumes han alcanzado el <b>top 10</b> Bilboard 200</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- radar -->
+		<script src="radarChart.js"></script>	
+		<script>
+      
+      /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
+      
+			////////////////////////////////////////////////////////////// 
+			//////////////////////// Set-Up ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var margin = {top: 100, right: 100, bottom: 100, left: 100},
+				width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+					
+			////////////////////////////////////////////////////////////// 
+			////////////////////////// Data ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+			var a = 1;
+			var b = 1;
+			var o = 1;
+			var e = 1;
+			var data = [
+					  [//Anuel
+						{axis:"Patrimonio",value: 6/500/a},
+						{axis:"Cobro por Concierto",value: 0.5/2.6/a},
+						{axis:"cantidad de segidores (instagram)",value: 22.5/27.2/a},
+						{axis:"Máx. Views (youtube)",value: 1.363/1.429/a},
+						{axis:"Trayectoria",value: 9/56/a},
+						{axis:"Nominaciones",value: 20/61/a},
+						{axis:"Premios ganados",value: 7/36/a},
+						{axis:"discos",value: 2/41/a}			
+					  ],[//Bad bunny
+						{axis:"Patrimonio",value: 8/500/b},
+						{axis:"Cobro por Concierto",value: 0.5/2.6/b},
+						{axis:"cantidad de segidores (instagram)",value: 27.2/27.2/b},
+						{axis:"Máx. Views (youtube)",value: 1.040/1.429/b},
+						{axis:"Trayectoria",value: 3/56/b},
+						{axis:"Nominaciones",value: 61/61/b},
+						{axis:"Premios ganados",value: 18/36/b},
+						{axis:"discos",value: 4/41/b}			
+					  ],[//Ozuna
+						{axis:"Patrimonio",value: 18/500/o},
+						{axis:"Cobro por Concierto",value: 0.2/2.6/o},
+						{axis:"cantidad de segidores (instagram)",value: 19.1/27.2/o},
+						{axis:"Máx. Views (youtube)",value: 1.429/1.429/o},
+						{axis:"Trayectoria",value: 8/56/o},
+						{axis:"Nominaciones",value: 32/61/o},
+						{axis:"Premios ganados",value: 27/36/o},
+						{axis:"discos",value: 3/41/o}			
+					  ],[//Elton john
+						{axis:"Patrimonio",value: 500/500/e},
+						{axis:"Cobro por Concierto",value: 2.6/2.6/e},
+						{axis:"cantidad de segidores (instagram)",value: 3/27.2/e},
+						{axis:"Máx. Views (youtube)",value: 0.307/1.429/e},
+						{axis:"Trayectoria",value: 56/56/e},
+						{axis:"Nominaciones",value: 50/61/e},
+						{axis:"Premios ganados",value: 36/36/e},
+						{axis:"discos",value: 41/41/e}			
+					  ]
+					];
+			////////////////////////////////////////////////////////////// 
+			//////////////////// Draw the Chart ////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var color = d3.scale.ordinal()
+				.range(["#550000","#ffd100","#6912B3","#00ffd0"]);
+				
+			var radarChartOptions = {
+			  w: width,
+			  h: height,
+			  margin: margin,
+			  maxValue: 1,
+			  levels: 5,
+			  roundStrokes: true,
+			  color: color
+			};
+			//Call function to draw the Radar chart
+			RadarChart(".radarChart", data, radarChartOptions);
+			function filter(div_t) {
+				if (div_t){
+					a = 9;
+					b = 3;
+					o = 8;
+					e = 56;
+				}else {
+					a = 1;
+					b = 1;
+					o = 1;
+					e = 1;
+				}
+				data = [
+					  [//Anuel
+						{axis:"Patrimonio",value: 6/500/a},
+						{axis:"Cobro por Concierto",value: 0.5/2.6/a},
+						{axis:"cantidad de segidores (instagram)",value: 22.5/27.2/a},
+						{axis:"Máx. Views (youtube)",value: 1.363/1.429/a},
+						{axis:"Trayectoria",value: 9/56/a},
+						{axis:"Nominaciones",value: 20/61/a},
+						{axis:"Premios ganados",value: 7/36/a},
+						{axis:"discos",value: 2/41/a}			
+					  ],[//Bad bunny
+						{axis:"Patrimonio",value: 8/500/b},
+						{axis:"Cobro por Concierto",value: 0.5/2.6/b},
+						{axis:"cantidad de segidores (instagram)",value: 27.2/27.2/b},
+						{axis:"Máx. Views (youtube)",value: 1.040/1.429/b},
+						{axis:"Trayectoria",value: 3/56/b},
+						{axis:"Nominaciones",value: 61/61/b},
+						{axis:"Premios ganados",value: 18/36/b},
+						{axis:"discos",value: 4/41/b}			
+					  ],[//Ozuna
+						{axis:"Patrimonio",value: 18/500/o},
+						{axis:"Cobro por Concierto",value: 0.2/2.6/o},
+						{axis:"cantidad de segidores (instagram)",value: 19.1/27.2/o},
+						{axis:"Máx. Views (youtube)",value: 1.429/1.429/o},
+						{axis:"Trayectoria",value: 8/56/o},
+						{axis:"Nominaciones",value: 32/61/o},
+						{axis:"Premios ganados",value: 27/36/o},
+						{axis:"discos",value: 3/41/o}			
+					  ],[//Elton john
+						{axis:"Patrimonio",value: 500/500/e},
+						{axis:"Cobro por Concierto",value: 2.6/2.6/e},
+						{axis:"cantidad de segidores (instagram)",value: 3/27.2/e},
+						{axis:"Máx. Views (youtube)",value: 0.307/1.429/e},
+						{axis:"Trayectoria",value: 56/56/e},
+						{axis:"Nominaciones",value: 50/61/e},
+						{axis:"Premios ganados",value: 36/36/e},
+						{axis:"discos",value: 41/41/e}			
+					  ]
+					];
+				RadarChart(".radarChart", data, radarChartOptions);
+			}
+		</script>
+		<!-- bubbles -->
+		<script language="JavaScript">
+
+			var config1 = liquidFillGaugeDefaultSettings(); 
+			config1.textVertPosition = 0.8;
+			config1.circleColor = "#FFFFFC";
+			config1.textColor = "#94511c";
+			config1.waveTextColor = "#94511c";
+			config1.waveColor = "#fcc200";
+			config1.circleThickness = 0.05;
+			config1.circleFillGap = 0.05;
+			config1.textVertPosition = 0.5;
+			config1.waveAnimateTime = 3000;
+			config1.waveHeight = 0.1;
+			config1.waveCount = 1;
+			config1.maxValue = 70
+			var gauge1= loadLiquidFillGauge("fillgauge1", 100*800/500000, config1);
+
+			var config2 = liquidFillGaugeDefaultSettings();  
+			config2.circleColor = "#FFFFFC";
+			config2.textColor = "#FFFFFC";
+			config2.waveTextColor = "#94511c";
+			config2.waveColor = "#fcc200";
+			var gauge2 = loadLiquidFillGauge("fillgauge2",  100*1040/1800, config2);
+
+			var config3 = liquidFillGaugeDefaultSettings();
+			
+			config3.circleColor = "#FFFFFC";
+			config3.textColor = "#94511c";
+			config3.waveTextColor = "#94511c";
+			config3.waveColor = "#fcc200";
+			config3.circleThickness = 0.05;
+			config3.textVertPosition = 0.5;
+			config3.waveAnimateTime = 1000;
+			config3.maxValue = 90;
+			config3.displayPercent = false;
+			var gauge3 = loadLiquidFillGauge("fillgauge3", 19, config3);
+
+			var config4 = liquidFillGaugeDefaultSettings();
+			var gauge4 = loadLiquidFillGauge("fillgauge4",  100, config2);
+
+			
+			function NewValue(){
+				if(Math.random() > .5){
+					return Math.round(Math.random()*100);
+				} else {
+					return (Math.random()*100).toFixed(1);
+				}
+			}
+		</script>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	</body>
+</html>

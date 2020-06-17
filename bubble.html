@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+        <title>D3: A simple packed Bubble Chart</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+        
+</head>
+<body>
+	<script type="text/javascript">
+        
+        dataset = {
+            "children": [
+                {"Name":"Crimen y castigo","Count":5},
+                {"Name":"Amor y relaciones","Count":4},
+                {"Name":"MEmoria","Count":3},
+                {"Name":"Política","Count":2},
+                {"Name":"Percepción del tiempo","Count":2},
+                {"Name":"Venganza","Count":2},
+                {"Name":"Chantaje","Count":2},
+                {"Name":"Governanza","Count":1},
+                {"Name":"Muerte y postvida","Count":1},
+                {"Name":"Entorno","Count":1},
+                {"Name":"Supervivencia","Count":1},
+                {"Name":"Paternidad","Count":1},
+                {"Name":"Privacidad","Count":1},
+                {"Name":"Miedo","Count":1},
+                {"Name":"Guerra y conflicto","Count":1},
+            ]
+        };
+
+        var diameter = 600;
+        // var color = d3.scaleOrdinal(d3.schemeCategory20c);
+        var color = d3.scaleOrdinal()
+                .range(["#ffd100", "#eec64f", "#ae8d0b", "#444e44", "#c1beba"]);
+
+        var bubble = d3.pack(dataset)
+            .size([diameter, diameter])
+            .padding(1.5);
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", diameter)
+            .attr("height", diameter)
+            .attr("class", "bubble");
+
+        var nodes = d3.hierarchy(dataset)
+            .sum(function(d) { return d.Count; });
+
+        var node = svg.selectAll(".node")
+            .data(bubble(nodes).descendants())
+            .enter()
+            .filter(function(d){
+                return  !d.children
+            })
+            .append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+
+        node.append("title")
+            .text(function(d) {
+                return d.Name + ": " + d.Count;
+            });
+
+        node.append("circle")
+            .attr("r", function(d) {
+                return d.r;
+            })
+            .style("fill", function(d,i) {
+                return color(i);
+            });
+
+        node.append("text")
+            .attr("dy", ".2em")
+            .style("text-anchor", "middle")
+            .text(function(d) {
+                console.log(d.data.children);
+                return d.data.Name.substring(0, d.r / 3);
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", function(d){
+                return d.r/5;
+            })
+            .attr("fill", "white");
+
+        node.append("text")
+            .attr("dy", "1.3em")
+            .style("text-anchor", "middle")
+            .text(function(d) {
+                return d.data.Count;
+            })
+            .attr("font-family",  "Gill Sans", "Gill Sans MT")
+            .attr("font-size", function(d){
+                return d.r/5;
+            })
+            .attr("fill", "white");
+
+        d3.select(self.frameElement)
+            .style("height", diameter + "px");
+
+
+
+    </script>
+    <script type="text/javascript">
+    
+        dataset = {
+            "children": [{"Name":"Implante Neuronal","Count":8},
+                {"Name":"redes sociales","Count":6},
+                {"Name":"Respaldo de conciencia","Count":4},
+                {"Name":"Robotica","Count":3},
+                {"Name":"Gamificación","Count":2},
+                {"Name":"Realidad virtual","Count":2},
+                {"Name":"Ciberseguridad","Count":2},
+                {"Name":"Realidad aumentada","Count":1},
+                {"Name":"Ingeniería genética","Count":1}
+            ]
+        };
+
+
+        var diameter = 600;
+        // var color = d3.scaleOrdinal(d3.schemeCategory20c);
+        var color = d3.scaleOrdinal()
+                .range(["#ffd100", "#eec64f", "#ae8d0b", "#444e44", "#c1beba"]);
+
+        var bubble = d3.pack(dataset)
+            .size([diameter, diameter])
+            .padding(1.5);
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", diameter)
+            .attr("height", diameter)
+            .attr("class", "bubble");
+
+        var nodes = d3.hierarchy(dataset)
+            .sum(function(d) { return d.Count; });
+
+        var node = svg.selectAll(".node")
+            .data(bubble(nodes).descendants())
+            .enter()
+            .filter(function(d){
+                return  !d.children
+            })
+            .append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+
+        node.append("title")
+            .text(function(d) {
+                return d.Name + ": " + d.Count;
+            });
+
+        node.append("circle")
+            .attr("r", function(d) {
+                return d.r;
+            })
+            .style("fill", function(d,i) {
+                return color(i);
+            });
+
+        node.append("text")
+            .attr("dy", ".2em")
+            .style("text-anchor", "middle")
+            .text(function(d) {
+                console.log(d.data.children);
+                return d.data.Name.substring(0, d.r / 3);
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", function(d){
+                return d.r/5;
+            })
+            .attr("fill", "white");
+
+        node.append("text")
+            .attr("dy", "1.3em")
+            .style("text-anchor", "middle")
+            .text(function(d) {
+                return d.data.Count;
+            })
+            .attr("font-family",  "Gill Sans", "Gill Sans MT")
+            .attr("font-size", function(d){
+                return d.r/5;
+            })
+            .attr("fill", "white");
+
+        d3.select(self.frameElement)
+            .style("height", diameter + "px");
+
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>
