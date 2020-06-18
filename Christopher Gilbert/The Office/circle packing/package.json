@@ -1,0 +1,14 @@
+{
+  "name": "c98cfce9e2877756",
+  "main": "c98cfce9e2877756@172.js",
+  "version": "172.0.0",
+  "homepage": "https://observablehq.com/d/c98cfce9e2877756",
+  "author": {
+    "name": "Christopher Alejandro Gilbert Carroza",
+    "url": "https://observablehq.com/@drusq"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

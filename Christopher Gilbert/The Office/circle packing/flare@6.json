@@ -1,0 +1,208 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "Season 1",
+   "children": [
+    {
+     "name": "Nominaciones",
+     "children": [
+      {"name": "Comedy Series", "value": 2000},
+      {"name": "New Series", "value": 2000},
+      {"name": "Episodic Comedy", "value": 2000},
+      {"name": "Program of the Year", "value": 2000},
+      {"name": "TV - Choice Actor: Comedy", "value": 2000},
+      {"name": "Best Actor in a Series, Comedy or Musical", "value": 2000},
+      {"name": "Best Television Series, Comedy or Musical", "value": 2000}
+     ]
+    },
+    {
+        "name": "Ganados",
+        "children": [
+         {"name": "Outstanding Comedy Series", "value": 2000},
+         {"name": "Outstanding Lead Actress in a Comedy Series", "value": 2000},
+         {"name": "Individual Achievement in Comedy", "value": 2000},
+         {"name": "Outstanding Achievement in Comedy", "value": 2000}
+        ]
+       }
+   ]
+  },
+  {
+   "name": "Season 2",
+   "children": [
+    {
+     "name": "Nominaciones",
+     "children": [
+      {"name": "Episodic Comedy", "value": 2000},
+      {"name": "Choice TV Show: Comedy", "value": 2000},
+      {"name": "Best DVD Release of a TV Show", "value": 2000},
+      {"name": "Best Actor in a Series, Comedy or Musical", "value": 2000},
+      {"name": "Performance in a Comedy Series", "value": 2000}
+     ]
+    },
+    {
+        "name": "Ganados",
+        "children": [
+            {"name": "Episodic Comedy", "value": 2000},
+            {"name": "Comedy Series", "value": 2000},
+            {"name": "Outstanding Achievement in Comedy", "value": 2000},
+            {"name": "Choice TV Actor: Comedy", "value": 2000},
+            {"name": "Outstanding Producer of Episodic Television, Comedy", "value": 2000}
+        ]
+        }
+   ]
+  },
+  {
+   "name": "Season 3",
+   "children": [
+    {
+     "name": "Nominaciones",
+     "children": [
+      {"name": "Episodic Comedy", "value": 2000},
+      {"name": "Episodic Comedy", "value": 2000},
+      {"name": "Comedy Series", "value": 2000},
+      {"name": "Co-Worker You're Least Likely to Invite Out for Happy Hour", "value": 2000},
+      {"name": "Outstanding Achievement in Comedy", "value": 2000},
+      {"name": "Outstanding Producer of Episodic Television, Comedy", "value": 2000}
+     ]
+    },
+    {
+        "name": "Premios",
+        "children": [
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Future Classic Award", "value": 2000},
+         {"name": "Choice TV Actor: Comedy", "value": 2000}
+         
+        ]
+       }
+   ]
+  },
+  {
+   "name": "Season 4",
+   "children": [
+    {
+        "name": "Nominaciones",
+        "children": [
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Comedy Series", "value": 2000},
+         {"name": "Individual Achievement in Comedy", "value": 2000},
+         {"name": "Outstanding Achievement in Comedy", "value": 2000},
+         {"name": "Choice TV Actress: Comedy", "value": 2000},
+         {"name": "Choice TV Actor: Comedy", "value": 2000},
+         {"name": "Choice TV Show: Comedy", "value": 2000},
+         {"name": "Performance in a Comedy Series", "value": 2000},
+         {"name": "Outstanding Producer of Episodic Television, Comedy", "value": 2000}
+
+        ]
+    },
+    {
+        "name": "Premios",
+        "children": [
+         {"name": "Comedy Multi-Episode Storyline", "value": 2000}
+
+        ]
+    }
+   ]
+  },
+  {
+   "name": "Season 5",
+   "children": [
+    {
+        "name": "Nominaciones",
+        "children": [
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Comedy Series", "value": 2000},
+         {"name": "Choice TV Actor: Comedy", "value": 2000},
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Best Actor in a Series, Comedy or Musical", "value": 2000},
+         {"name": "Outstanding Producer of Episodic Television, Comedy", "value": 2000}
+        ]
+    },
+    {
+        "name": "Premios",
+        "children": [
+         
+        ]
+    }
+   ]
+  },
+  {
+   "name": "Season 6",
+   "children": [
+    {
+        "name": "Nominaciones",
+        "children": [
+         {"name": "Comedy Series", "value": 2000},
+         {"name": "Choice TV Actor: Comedy", "value": 2000},
+         {"name": "Choice TV Actor: Comedy", "value": 2000},
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Outstanding Producer of Episodic Television, Comedy", "value": 2000}
+        ]
+    },
+    {
+        "name": "Premios",
+        "children": [
+         
+        ]
+    }
+   ]
+  },
+  {
+   "name": "Season 7",
+   "children": [
+    {
+        "name": "Nominaciones",
+        "children": [
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Best Television Series, Comedy or Musical", "value": 2000},
+         {"name": "Favorite TV Guest Star", "value": 2000}
+        ]
+    },
+    {
+        "name": "Premios",
+        "children": [
+         
+        ]
+    }
+   ]
+  },
+  {
+   "name": "Season 8",
+   "children": [
+    {
+        "name": "Nominaciones",
+        "children": [
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Episodic Comedy", "value": 2000}
+        ]
+    },
+    {
+        "name": "Premios",
+        "children": [
+         
+        ]
+    }
+   ]
+  },
+  {
+   "name": "Season 9",
+   "children": [
+    {
+        "name": "Nominaciones",
+        "children": [
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Episodic Comedy", "value": 2000},
+         {"name": "Favorite Series We Miss Most", "value": 2000}
+        ]
+    },
+    {
+        "name": "Premios",
+        "children": [
+         
+        ]
+    }
+   ]
+  }
+ ]
+}

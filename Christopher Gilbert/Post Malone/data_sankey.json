@@ -1,0 +1,26 @@
+{
+"nodes":[
+{"node":0,"name":"Stoney (2016)"},
+{"node":1,"name":"Beerbongs & Bentleys (2018)"},
+{"node":2,"name":"Hollywood's Bleeding (2019)"},
+{"node":3,"name":"Orphan (invited)"},
+{"node":4,"name":"Físico"},
+{"node":5,"name":"Descargas"},
+{"node":6,"name":"Streaming"},
+{"node":7,"name":"Total 18.5M"}
+],
+"links":[
+{"source":0,"target":5,"value":4},
+{"source":0,"target":6,"value":28},
+{"source":1,"target":4,"value":1},
+{"source":1,"target":5,"value":4},
+{"source":1,"target":6,"value":37},
+{"source":2,"target":5,"value":2},
+{"source":2,"target":6,"value":12},
+{"source":3,"target":4,"value":1},
+{"source":3,"target":5,"value":1},
+{"source":3,"target":6,"value":6},
+{"source":4,"target":7,"value":1},
+{"source":5,"target":7,"value":10},
+{"source":6,"target":7,"value":85}
+]}

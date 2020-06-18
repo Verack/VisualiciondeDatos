@@ -1,0 +1,244 @@
+{
+  "data": {
+    "id": "World"
+  },
+  "children": [
+    {
+      "data": {
+        "id": "Asia"
+      },
+      "children": [
+        {
+          "data": {
+            "id": "Eastern Asia"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Japan"
+              }
+            }
+          ]
+        },
+        {
+          "data": {
+            "id": "Western Asia"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "United Arab Emirates"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": "Europe"
+      },
+      "children": [
+        {
+          "data": {
+            "id": "Southern Europe"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Italy"
+              }
+            },
+            {
+              "data": {
+                "id": "Spain"
+              }
+            }
+          ]
+        },
+        {
+          "data": {
+            "id": "Western Europe"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Belgium"
+              }
+            },
+            {
+              "data": {
+                "id": "France"
+              }
+            },
+            {
+              "data": {
+                "id": "Germany"
+              }
+            },
+            {
+              "data": {
+                "id": "Netherlands"
+              }
+            },
+            {
+              "data": {
+                "id": "Switzerland"
+              }
+            }
+          ]
+        },
+        {
+          "data": {
+            "id": "Eastern Europe"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Hungary"
+              }
+            },
+            {
+              "data": {
+                "id": "Poland"
+              }
+            }            
+          ]
+        },
+        {
+          "data": {
+            "id": "Northern Europe"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Denmark"
+              }
+            },
+            {
+              "data": {
+                "id": "Estonia"
+              }
+            },
+            {
+              "data": {
+                "id": "Finland"
+              }
+            },
+            {
+              "data": {
+                "id": "Ireland"
+              }
+            },
+            {
+              "data": {
+                "id": "Sweden"
+              }
+            },
+            {
+              "data": {
+                "id": "United Kingdom"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": "Africa"
+      },
+      "children": [
+        {
+          "data": {
+            "id": "Southern Africa"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "South Africa"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": "Oceania"
+      },
+      "children": [
+        {
+          "data": {
+            "id": "Australia and New Zealand"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Australia"
+              }
+            },
+            {
+              "data": {
+                "id": "New Zealand"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": "Latin America"
+      },
+      "children": [
+        {
+          "data": {
+            "id": "South America"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Argentina"
+              }
+            },
+            {
+              "data": {
+                "id": "Brazil"
+              }
+            },
+            {
+              "data": {
+                "id": "Chile"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": ""
+      },
+      "children": [
+        {
+          "data": {
+            "id": "Northern America"
+          },
+          "children": [
+            {
+              "data": {
+                "id": "Canada"
+              }
+            },
+            {
+              "data": {
+                "id": "United States of America"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
