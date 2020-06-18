@@ -1,0 +1,52 @@
+h1{
+  font-family: Roboto;
+  padding: 20px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+.cells circle{
+  fill: #6897D4;
+}
+
+.cells circle:focus{
+  fill: #69DBB9;
+}
+
+.cells :hover circle {
+  fill: #69DBB9;
+}
+
+.axis-label text{
+font-size: 16px;
+font-family: Roboto;
+font-weight: bold;
+}
+
+.dotted{
+  stroke: #4C4C4C;
+  fill: none;
+  stroke-dasharray: 3;
+}
+
+.avg-value {
+	height: 36px;	width: 141px;	fill: #2D2D2D;	font-family: Roboto;	font-size: 40px;	font-weight: 300;	line-height: 36px;
+}
+
+.avg{
+	height: 28px;	width: 72px;	fill: #2D2D2D;	font-family: "Roboto";	font-size: 18px;	font-weight: bold;	line-height: 28px;
+}

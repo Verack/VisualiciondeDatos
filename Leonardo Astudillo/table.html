@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Tenacious D Award D3.js table</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!doctype html>
+<h3> Premios de Tenacious D </h3>
+<meta charset="utf-8">
+
+<script src="//d3plus.org/js/d3.js"></script>
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+<div id="viz"></div>
+
+<script>
+
+  var data = [
+    {"index":"Annie 2002", "nominado-ganador":1},
+    {"index":"MVPA 2003", "nominado-ganador":1},
+    {"index":"Kerrang 2012", "nominado-ganador":100},
+    {"index":"Grammy 2013", "nominado-ganador":1},
+    {"index":"Grammy 2015", "nominado-ganador":100}
+  ]
+
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(data)
+    .type("table")
+    .id("index")
+    .shape("triangle_up")
+    .cols(["nominado-ganador"])
+    .draw()
+
+</script>
+<!-- partial -->
+  
+</body>
+</html>
